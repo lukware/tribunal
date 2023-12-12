@@ -6,10 +6,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Acta } from '../../model/acta';
 import { ServiceActas } from '../../service/service-actas.service';
-import { MatTableModule } from '@angular/material/table' 
 
 @Component({
   selector: 'app-search',

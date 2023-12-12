@@ -20,6 +20,6 @@ export class ServiceActas {
     //.set('param1', 'value1')
     //.set('param2', 'value2');
 
-    return this.http.get<any>(`${API_ACTAS_URL_LOCAL}${criterio}`, { headers });
+    return this.http.get<Acta>(`${API_ACTAS_URL_LOCAL}${criterio}`, { headers });
   }
 }
