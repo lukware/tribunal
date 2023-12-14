@@ -36,15 +36,20 @@ export class SearchComponent {
 
   search() {
     if (this.searchText) {      
+      //ver como refactorizar deprecated + logica
       this.service.getActas(this.searchText).subscribe(
         (result) => {          
-          
+          //VAlidar cantidad de elemtos > 0
+          //result.CantidadElementos
+          //console.log(result.Elementos);
+          //this.actas = result.Elementos,    
+
           console.log(result);
-          this.actas = result.Elementos,
-          console.log('Result');
-          console.log(this.actas);
-          this.dataSource = new MatTableDataSource<Acta>(this.actas);
-          console.log(this.actas);
+          //console.log('Result convert Elements toActas');
+          //console.log(this.actas);
+          
+          /*this.dataSource = new MatTableDataSource<Acta>(this.actas);
+          console.log(this.actas[0].infracciones[0].articulo);*/
         },
         (error) => {
           console.error('Error fetching search results', error);
