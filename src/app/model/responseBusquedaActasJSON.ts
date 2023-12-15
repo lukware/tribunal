@@ -1,4 +1,5 @@
 import { Acta } from "./acta";
+import { Infraccion } from "./infraccion";
 
 export interface ResponseBusquedaActasJSON {
     Ok:                boolean;
@@ -9,10 +10,11 @@ export interface ResponseBusquedaActasJSON {
     CantidadElementos: number;
     Total:             null;
     TipoBusqueda:      number;
-    Elementos:         Elemento[];
+    Elementos:         Acta[]; //Cambio por Elemento
 }
 
-export interface Elemento {
+//Cambio por Elemento
+/*export interface Acta {
     idActa:            string;
     codInfraccion1:    number;
     codInfraccion2:    number;
@@ -33,25 +35,8 @@ export interface Elemento {
     es_extrania_juris: number;
     descuento:         number;
     codNotificacion:   boolean;
-    infracciones:      Infraccione[];
+    infracciones:      Infraccion[]; //Se usa la clase Infracion en ves de la interface Infraccion
     monto:             number;
     fotomulta:         boolean;
     montoSinSellado:   number;
-}
-
-export interface Infraccione {
-    codigoInfraccion:   number;
-    detalle:            string;
-    montoMaximo:        number;
-    montoMinimo:        number;
-    montoExtrajudicial: number;
-    montoInfraccion:    number;
-    monto:              number;
-    grave:              string;
-    articulo:           string;
-    ordenanza:          string;
-    descripAmpliada:    string;
-    idMotivo:           number;
-    estado:             number;
-    posicion:           number;
-}
+}*/
