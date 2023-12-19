@@ -30,7 +30,7 @@ export class SearchComponent {
   searchText: string = '';
   actas!: Acta[];
   dataSource: any;
-  displayedColumns: string[] = ["idActa", "dominio", "documento", "fecha", "descripcion", "monto"];
+  displayedColumns: string[] = ["idActa", "dominio", "documento", "fecha", "descripcion", "monto", "descripcionAmpliada"];
 
   constructor(private service: ServiceActas ){}
 
@@ -40,20 +40,17 @@ export class SearchComponent {
       this.service.getActas(this.searchText).subscribe(
         (result) => {          
           //VAlidar cantidad de elemtos > 0
-          //result.CantidadElementos
-          //console.log(result.Elementos);
-          //this.actas = result.Elementos,    
-
-          console.log(result);
-          //console.log('Result convert Elements toActas');
-          //console.log(this.actas);
-          
-          /*this.dataSource = new MatTableDataSource<Acta>(this.actas);
-          console.log(this.actas[0].infracciones[0].articulo);*/
+          //result.CantidadElementos          
+          this.actas = result;    
+          console.log(this.actas);
+          this.dataSource = new MatTableDataSource<Acta>(this.actas);          
         },
         (error) => {
           console.error('Error fetching search results', error);
         }
+        /*(error: {'Error fetching search results'} ) => {
+          
+        }*/
       );
     } else {
       // Handle empty search

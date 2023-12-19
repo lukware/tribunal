@@ -1,7 +1,7 @@
 import { Infraccion } from './infraccion';
 
 export class Acta {
-  
+
   static actaDesdeJson(obj: Acta): Acta {    
     return new Acta(
       obj['idActa'],
@@ -59,6 +59,6 @@ export class Acta {
   ) {}
 
   get descripcionAmpliada() {
-    return `${this.idActa} ${this.documento}`;
+    return `${this.idActa} ${this.observacion}`;
   }
 }
