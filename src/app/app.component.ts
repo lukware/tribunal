@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MenuBarComponent } from "./components/menu-bar/menu-bar.component";
 import { SideBarComponent } from "./components/side-bar/side-bar.component";
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 @Component({
     selector: 'app-root',
@@ -14,7 +16,9 @@ import { SideBarComponent } from "./components/side-bar/side-bar.component";
         RouterOutlet,
         RouterLink,        
         MenuBarComponent,
-        SideBarComponent        
+        SideBarComponent,
+        HomeComponent,
+        LoginComponent       
     ]
 })
 export class AppComponent {

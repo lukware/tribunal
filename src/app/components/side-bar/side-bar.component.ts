@@ -5,6 +5,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavService } from './side-bar.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,6 +17,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     MatButtonModule,
     RouterLink,
     RouterOutlet,
+    SearchComponent
   ],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.css',

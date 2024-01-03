@@ -1,1 +1,6 @@
-<app-search />
+@if (userLoginOn) {
+    <app-menu-bar />
+    <app-sidebar />
+} @else {
+    <app-login />
+}
