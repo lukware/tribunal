@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import { JWT } from '../model/JWT';
 import { ResponseJWT } from '../model/responseJWT';
 import { API_JWT_URL_TEST } from '../shared/constants';
+import { LoginRequest } from './loginRequest';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import { API_JWT_URL_TEST } from '../shared/constants';
 export class ServiceAuthService {
   constructor(private http: HttpClient) { }
 
-  getJwt(user: string, app: string, dni: string, email: string, roles: string): Observable<JWT[]> {
+  getJwt(credentials: LoginRequest): Observable<JWT[]> {
     // Set headers
     const headers = new HttpHeaders() //.set('Authorization', 'Bearer YourAccessToken')
       .set('Content-Type', 'application/json');
@@ -21,12 +22,9 @@ export class ServiceAuthService {
 
     //Service Call
     return this.http
-      .get<ResponseJWT>(`${API_JWT_URL_TEST}${user}${app}${dni}${email}${roles}`, {
-        headers,
-      })
+      .post<ResponseJWT>(`${API_JWT_URL_TEST}`, credentials)
       .pipe(
         map((resp) => {
-          //return resp.Elementos.map(acta => acta);
           return resp.Elementos.map(TokenJwt => JWT.Jwt(TokenJwt));
         })
       );
