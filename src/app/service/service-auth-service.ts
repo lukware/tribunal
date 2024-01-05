@@ -13,7 +13,7 @@ import { LoginRequest } from './loginRequest';
 export class ServiceAuthService {
   constructor(private http: HttpClient) { }
 
-  getJwt(credentials: LoginRequest): Observable<JWT[]> {
+  getJwt(credentials: LoginRequest): Observable<ResponseJWT> {//<JWT[]> {
     // Set headers
     const headers = new HttpHeaders() //.set('Authorization', 'Bearer YourAccessToken')
       .set('Content-Type', 'application/json');
@@ -25,7 +25,8 @@ export class ServiceAuthService {
       .post<ResponseJWT>(`${API_JWT_URL_TEST}`, credentials)
       .pipe(
         map((resp) => {
-          return resp.Elementos.map(TokenJwt => JWT.Jwt(TokenJwt));
+          return resp;
+          //return resp.Elementos.map(TokenJwt => JWT.Jwt(TokenJwt));
         })
       );
   }

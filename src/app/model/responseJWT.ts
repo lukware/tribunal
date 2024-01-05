@@ -4,5 +4,5 @@ export interface ResponseJWT {
     Ok:                boolean;
     CodigoEstado:      string;
     Mensaje:           string;    
-    Elementos:         JWT[];
+    Elementos:         JWT[];    
 }

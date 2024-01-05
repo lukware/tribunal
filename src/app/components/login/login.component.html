@@ -2,27 +2,34 @@
     <app-home></app-home>
   } @else {
     <form [formGroup]="loginForm" (ngSubmit)="FormUserSubmit()" class="login">  
-      <p>
-        <mat-form-field appearance="outline">
-          <mat-label>Usuario</mat-label>
-          <input type="text" formControlName="user" matInput placeholder="Ingrese su usuario">
-          <mat-hint>*Campo obligatorio</mat-hint>      
-          <mat-icon matSuffix>person</mat-icon>    
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="outline">
-          <mat-label>Clave</mat-label>
-          <input type="password" formControlName="pass" matInput placeholder="Ingrese su clave" password>
-          <mat-hint>*Campo obligatorio</mat-hint>      
-          <mat-icon matSuffix>vpn_key</mat-icon>
-        </mat-form-field>
-      </p>
-      <p>
-        <button type="submit" mat-fab extended color="primary" [disabled]="!loginForm.valid">  
+      <img src="../../../assets/img/logousuarios.svg" alt="login">
+      <mat-card class="card">      
+        <!--<mat-card-header class="card-header">
+          Autenticación
+        </mat-card-header>-->
+        <mat-card-content class="card-content">
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label>Usuario</mat-label>
+            <input type="text" formControlName="usuario" matInput placeholder="Ingrese su usuario">
+            <mat-hint>*Campo obligatorio</mat-hint>      
+            <mat-icon matSuffix>person</mat-icon>    
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="mat-input">
+            <mat-label>Clave</mat-label>
+            <input type="password" formControlName="clave" matInput placeholder="Ingrese su clave" password>
+            <mat-hint>*Campo obligatorio</mat-hint>      
+            <mat-icon matSuffix>vpn_key</mat-icon>
+          </mat-form-field>
+          @if (errorLogin) {            
+              <mat-error class="error_login">{{error}}</mat-error>
+          }
+        </mat-card-content>
+        <mat-card-footer class="card-footer">
+          <button type="submit" mat-fab extended color="primary" [disabled]="!loginForm.valid">
           Ingresar
-          <mat-icon>verified_user</mat-icon>
-        </button>
-      </p>
+            <mat-icon>verified_user</mat-icon>
+          </button>
+        </mat-card-footer>
+      </mat-card>
     </form>
   }
